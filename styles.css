@@ -115,7 +115,7 @@ body, html {
 .star, .heart, .cake {
     position: absolute;
     animation: float 5s infinite ease-in-out;
-    opacity: 0.3; /* 设置透明度为0.9（90%不透明） */
+    opacity: 0.5; /* 设置透明度为0.9（90%不透明） */
 }
 
 .star {
