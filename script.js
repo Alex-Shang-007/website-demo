@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     createEffect('star', '🌟', 10); // 创建20个星星
-    createEffect('heart', '❤️', 10); // 创建10个爱心
+    createEffect('heart', '💖', 10); // 创建10个爱心
     createEffect('cake', '🎂', 10); // 创建5个蛋糕
 });
 
