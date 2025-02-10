@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const effectsContainer = document.getElementById('background-effects');
 
-    // 定义中心区域的范围
-    const centerWidth = 0.4; // 中心区域宽度占页面的40%
-    const centerHeight = 0.4; // 中心区域高度占页面的40%
+    // 定义中心区域的范围（文字区域）
+    const centerWidth = 1.0; // 中心区域宽度占页面的100%
+    const centerHeight = 0.2; // 中心区域高度占页面的20%
     const centerLeft = (1 - centerWidth) / 2; // 中心区域左边界
     const centerTop = (1 - centerHeight) / 2; // 中心区域上边界
 
@@ -45,6 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 随机生成位置
                 x = Math.random(); // 0 ~ 1（相对于页面宽度）
                 y = Math.random(); // 0 ~ 1（相对于页面高度）
+
+                // 确保表情生成在文字的上方或下方
+                if (y < centerTop) {
+                    // 上方区域
+                    y = Math.random() * centerTop; // 0 ~ centerTop
+                } else if (y > centerTop + centerHeight) {
+                    // 下方区域
+                    y = Math.random() * (1 - (centerTop + centerHeight)) + (centerTop + centerHeight); // centerTop + centerHeight ~ 1
+                }
             } while (isInCenter(x, y)); // 如果位置在中心区域，则重新生成
 
             effect.style.left = `${x * 100}vw`;
@@ -54,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    createEffect('star', '🌟', 10); // 创建20个星星
+    createEffect('star', '🌟', 10); // 创建10个星星
     createEffect('heart', '💖', 10); // 创建10个爱心
-    createEffect('cake', '🎂', 10); // 创建5个蛋糕
+    createEffect('cake', '🎂', 10); // 创建10个蛋糕
 });
 
 document.addEventListener('DOMContentLoaded', function() {
