@@ -158,3 +158,33 @@ audio {
     z-index: 1000;
     cursor: pointer;
 }
+
+#page14 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.big-heart {
+    font-size: 180px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.page.active .big-heart {
+    opacity: 1;
+    transform: scale(1);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
